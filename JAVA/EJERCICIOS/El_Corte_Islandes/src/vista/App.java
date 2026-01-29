@@ -32,15 +32,19 @@ public class App {
         try {
             // creo tarjeta
             TarjetaRegalo tarjetaRegalo1 = new TarjetaRegalo(100);
-            System.out.println(tarjetaRegalo1);
+            System.out.println("Tarjeta regalo 1 : "+tarjetaRegalo1);
             // gasto dinero
             tarjetaRegalo1.gastarPasta(50);
-            System.out.println(tarjetaRegalo1);
+            System.out.println("Tarjeta regalo 1 : "+tarjetaRegalo1);
             tarjetaRegalo1.gastarPasta(5);
-            System.out.println(tarjetaRegalo1);
+            System.out.println("Tarjeta regalo 1 : "+tarjetaRegalo1);
             // fusiono tarjetas
             TarjetaRegalo tarjetaRegalo2 = new TarjetaRegalo(200);
-            TarjetaRegalo tarjetaRegalo3 = new TarjetaRegalo(0);
+            TarjetaRegalo tarjetaRegalo3 = new TarjetaRegalo();
+            tarjetaRegalo3 = tarjetaRegalo3.fusionar(tarjetaRegalo1, tarjetaRegalo2);
+            System.out.println("Tarjeta regalo 3 : "+tarjetaRegalo3);
+            System.out.println("t1 "+tarjetaRegalo1); // compruebo que las tarjetas fusionadas no tienen saldo
+            System.out.println("t2 "+tarjetaRegalo2);
 
         } catch (InvalidSaldo | InvalidCompra e) {
             System.out.println(e.getMessage());

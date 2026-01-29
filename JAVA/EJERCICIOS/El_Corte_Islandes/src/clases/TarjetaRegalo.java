@@ -27,7 +27,10 @@ public class TarjetaRegalo {
     public TarjetaRegalo fusionar(TarjetaRegalo tarjetaRegalo1, TarjetaRegalo tarjetaRegalo2) throws InvalidSaldo {
         TarjetaRegalo tarjetaRegalo3 = new TarjetaRegalo();
         tarjetaRegalo3.setNumTarjeta(numTarjeta);
-        tarjetaRegalo3.setSaldo(tarjetaRegalo1.getSaldo() + tarjetaRegalo2.getSaldo());;
+        tarjetaRegalo3.setSaldo(tarjetaRegalo1.getSaldo() + tarjetaRegalo2.getSaldo());
+
+        tarjetaRegalo1.setSaldo(0);
+        tarjetaRegalo2.setSaldo(0);
 
         return tarjetaRegalo3;
     }
@@ -55,7 +58,7 @@ public class TarjetaRegalo {
 
     @Override
     public String toString() {
-        return "TarjetaRegalo [saldo=" + saldo + ", numTarjeta=" + numTarjeta + "]";
+        return "[saldo=" + saldo + ", numTarjeta=" + numTarjeta + "]";
     }
 
 }
