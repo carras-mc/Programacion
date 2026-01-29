@@ -6,7 +6,8 @@ import excepciones.InvalidSaldo;
 public class TarjetaRegalo {
 
     private int saldo;
-    private int numTarjeta;
+    private String numTarjeta;
+    static int numTarjetaCont = 1;
 
     public TarjetaRegalo() {
     }
@@ -24,15 +25,12 @@ public class TarjetaRegalo {
         else throw new InvalidCompra();
     }
 
-    public TarjetaRegalo fusionar(TarjetaRegalo tarjetaRegalo1, TarjetaRegalo tarjetaRegalo2) throws InvalidSaldo {
-        TarjetaRegalo tarjetaRegalo3 = new TarjetaRegalo();
-        tarjetaRegalo3.setNumTarjeta(numTarjeta);
-        tarjetaRegalo3.setSaldo(tarjetaRegalo1.getSaldo() + tarjetaRegalo2.getSaldo());
-
+    public static TarjetaRegalo fusionar(TarjetaRegalo tarjetaRegalo1, TarjetaRegalo tarjetaRegalo2) throws InvalidSaldo {
+        int nuevoSaldo = tarjetaRegalo1.saldo + tarjetaRegalo2.saldo;
         tarjetaRegalo1.setSaldo(0);
         tarjetaRegalo2.setSaldo(0);
 
-        return tarjetaRegalo3;
+        return new TarjetaRegalo(nuevoSaldo);
     }
 
     public int getSaldo() {
@@ -48,17 +46,20 @@ public class TarjetaRegalo {
         
     }
 
-    public int getNumTarjeta() {
+    public String getNumTarjeta() {
         return numTarjeta;
     }
 
-    private void setNumTarjeta(int numTarjeta) {
-        this.numTarjeta =(int) (Math.random()*(99999 - 10000 + 1) + 10000);
+    private void setNumTarjeta(String numTarjeta) {
+        this.numTarjeta = String.valueOf(numTarjetaCont++);
+        while (this.numTarjeta.length() < 5) {
+            this.numTarjeta = "0" + this.numTarjeta;
+        }
     }
 
     @Override
     public String toString() {
-        return "[saldo=" + saldo + ", numTarjeta=" + numTarjeta + "]";
+        return "Tarjeta regalo [" + saldo + ", numTarjeta=" + numTarjeta + "]";
     }
-
+    
 }
