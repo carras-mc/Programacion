@@ -9,6 +9,14 @@ public class Bicicleta {
     // Compartida para todas las instancias.
     private static int numeroDeBiciletas = 0;
 
+    public Bicicleta() {
+    }
+
+    public Bicicleta(int numMarchas, int diametroRueda) {
+        this.numMarchas = numMarchas;
+        this.diametroRueda = diametroRueda;
+    }
+
     public Bicicleta(int numMarchas, int diametroRueda, int velocidad) {
         this.numMarchas = numMarchas;
         this.diametroRueda = diametroRueda;

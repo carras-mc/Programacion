@@ -1,8 +1,10 @@
 package modelo;
 
+import excepciones.DniException;
+
 public class Persona3 {
 
-        private String nombre;
+    private String nombre;
     private String apellidos;
     private int edad;
     private String dni;
